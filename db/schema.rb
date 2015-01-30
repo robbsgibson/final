@@ -13,4 +13,45 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "ingredients", force: :cascade do |t|
+    t.text "name"
+    t.text "alternative_name"
+  end
+
+  create_table "recipeingredients", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "ingredient_id"
+    t.integer "quantity"
+    t.string  "measurement"
+  end
+
+  add_index "recipeingredients", ["ingredient_id"], name: "index_recipeingredients_on_ingredient_id"
+  add_index "recipeingredients", ["recipe_id"], name: "index_recipeingredients_on_recipe_id"
+
+  create_table "recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.text    "title"
+    t.text    "description"
+    t.string  "meal_type"
+    t.text    "creation_date"
+  end
+
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "shoppinglists", force: :cascade do |t|
+    t.integer "user_id"
+    t.text    "creation_date"
+    t.text    "name"
+    t.integer "recipe_id"
+  end
+
+  add_index "shoppinglists", ["recipe_id"], name: "index_shoppinglists_on_recipe_id"
+  add_index "shoppinglists", ["user_id"], name: "index_shoppinglists_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "email"
+  end
+
 end

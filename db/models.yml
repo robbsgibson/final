@@ -1,29 +1,29 @@
 User:
-	username: string
-	password: string
-	email: string
+  username: string
+  password: string
+  email: string
 
 Recipe: 
-	user_id: integer
-	title: text
-	description: text
-	meal_type: text
-	creation_date: text
+  user_id: integer
+  title: text
+  description: text
+  meal_type: string
+  creation_date: text
 
 Recipeingredient:
-	recipe_id: integer
-	ingredient_id: integer
-	quantity: integer
-	measurement: text
+  recipe_id: integer
+  ingredient_id: integer
+  quantity: integer
+  measurement: string
 
 Ingredient:
-	name: text
-	alternative_name: text
+  name: text
+  alternative_name: text
 
 Shoppinglist:
-	user_id: integer
-	creation_date: text
-	name: text
-	recipe_id: integer
+  user_id: integer
+  creation_date: text
+  name: text
+  recipe_id: integer
 
 
