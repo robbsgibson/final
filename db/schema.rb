@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "ingredients", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "quantity"
+    t.string  "measurement"
+    t.integer "product_id"
+  end
+
+  add_index "ingredients", ["product_id"], name: "index_ingredients_on_product_id"
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
+
+  create_table "products", force: :cascade do |t|
     t.text "name"
     t.text "alternative_name"
   end
-
-  create_table "recipeingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-    t.integer "quantity"
-    t.string  "measurement"
-  end
-
-  add_index "recipeingredients", ["ingredient_id"], name: "index_recipeingredients_on_ingredient_id"
-  add_index "recipeingredients", ["recipe_id"], name: "index_recipeingredients_on_recipe_id"
 
   create_table "recipes", force: :cascade do |t|
     t.integer "user_id"

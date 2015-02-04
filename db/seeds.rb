@@ -10,8 +10,8 @@
 puts "Deleting all records from the database..."
 User.delete_all
 Recipe.delete_all
-Recipeingredient.delete_all
 Ingredient.delete_all
+Product.delete_all
 Shoppinglist.delete_all
 
 # Create User
@@ -32,25 +32,25 @@ udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle 
 
 # Create Ingredient
 puts "Creating the ingredient database..."
-whole_peeled_tomatoes = Ingredient.create(name: "Whole-peeled tomatoes")
-eggs = Ingredient.create(name: "Eggs")
-olive_oil = Ingredient.create(name: "Olive oil")
-serano_peppers = Ingredient.create(name: "Serano peppers")
-yellow_onion = Ingredient.create(name: "Onion (yellow)")
-garlic = Ingredient.create(name: "garlic")
-cumin_ground = Ingredient.create(name: "cumin (ground)")
-paprika = Ingredient.create(name: "paprika")
+whole_peeled_tomatoes = Product.create(name: "Whole-peeled tomatoes")
+eggs = Product.create(name: "Eggs")
+olive_oil = Product.create(name: "Olive oil")
+serano_peppers = Product.create(name: "Serano peppers")
+yellow_onion = Product.create(name: "Onion (yellow)")
+garlic = Product.create(name: "garlic")
+cumin_ground = Product.create(name: "cumin (ground)")
+paprika = Product.create(name: "paprika")
 
 puts "Creating the recipe specific ingredients..."
 # Create recipe ingredients for Shakshuka
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: whole_peeled_tomatoes.id, quantity: "28", measurement: "ounce can")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: eggs.id, quantity: "6")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: olive_oil.id, quantity: "1/4", measurement: "cups")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: serano_peppers.id, quantity: "3")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: yellow_onion.id, quantity: "1")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: garlic.id, quantity: "5", measurement: "cloves")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: cumin_ground.id, quantity: "1", measurement: "teaspoon")
-Recipeingredient.create(recipe_id: shakshuka.id, ingredient_id: paprika.id, quantity: "1", measurement: "tablespoon")
+Ingredient.create(recipe_id: shakshuka.id, product_id: whole_peeled_tomatoes.id, quantity: "28", measurement: "ounce can")
+Ingredient.create(recipe_id: shakshuka.id, product_id: eggs.id, quantity: "6")
+Ingredient.create(recipe_id: shakshuka.id, product_id: olive_oil.id, quantity: "1/4", measurement: "cups")
+Ingredient.create(recipe_id: shakshuka.id, product_id: serano_peppers.id, quantity: "3")
+Ingredient.create(recipe_id: shakshuka.id, product_id: yellow_onion.id, quantity: "1")
+Ingredient.create(recipe_id: shakshuka.id, product_id: garlic.id, quantity: "5", measurement: "cloves")
+Ingredient.create(recipe_id: shakshuka.id, product_id: cumin_ground.id, quantity: "1", measurement: "teaspoon")
+Ingredient.create(recipe_id: shakshuka.id, product_id: paprika.id, quantity: "1", measurement: "tablespoon")
 
 puts "Creating the recipe specific ingredients..."
 # Create shopping list

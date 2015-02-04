@@ -1,0 +1,26 @@
+<h1> <%= @recipe.title %></p> </h1>
+
+<p> Description: <%= @recipe.description %></p>
+
+<h3>Ingredients</h3>
+
+<% @products.each do |product| %>
+
+<p><%= product.name %></p>
+<% end %>
+
+
+<table class="table">
+<tr>
+  <th>item</th>
+  <th>quantity</th>
+  <th>Measurement</th>
+</tr>
+<% @ingredients.each do |ingredient| %>
+  <tr>
+    <td><p><%= ingredient.product_id %></p></td>
+    <td><p><%= ingredient.quantity %></p></td>
+    <td><p><%= ingredient.measurement %></p></td>
+</tr>
+<% end %>
+</table>
