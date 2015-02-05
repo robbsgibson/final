@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
     @products = []
     @ingredients.each do |ingredient|
       @products << Product.find_by(id: ingredient.product_id)
+      @product_name = Product.find_by(id: ingredient.product_id)
     end
   end  
 
