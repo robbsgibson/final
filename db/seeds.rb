@@ -24,11 +24,11 @@ shelley = User.create(username: "shelley", password: "shelley")
 
 # Create Recipe
 puts "Creating the recipe..."
-shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy", meal_type: "Breakfast", creation_date: "12/1/2011")
-nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", description: "Delicious popsicles, great for a hot summer day or after school snack", meal_type: "Dessert", creation_date: "1/10/2012")
-korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", description: "spicy stew with silken tofu", meal_type: "Soup", creation_date: "1/14/2015")
-moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", description: "hearty stew that's great in the fall and winter", meal_type: "Dinner")
-udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", description: "Comfy food with a little spice", meal_type: "Soup")
+shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy.", meal_type: "Breakfast", creation_date: "12/1/2011")
+nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", description: "Delicious popsicles, great for a hot summer day or after school snack.", meal_type: "Dessert", creation_date: "1/10/2012")
+korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", description: "spicy stew with silken tofu.", meal_type: "Soup", creation_date: "1/14/2015")
+moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", description: "hearty stew that's great in the fall and winter.", meal_type: "Dinner")
+udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", description: "Comfy food with a little spice.", meal_type: "Soup")
 
 # Create Ingredient
 puts "Creating the ingredient database..."
