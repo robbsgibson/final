@@ -15,23 +15,30 @@ class RecipesController < ApplicationController
   end  
 
   def new
-    
+    @recipe = Recipe.new
   end
 
   def create
-    
+    recipe_params = params.require(:recipe).permit!
+    Recipe.create(recipe_params)
+    redirect_to recipes_path
   end
 
   def edit
-    
+    @recipe = Recipe.find_by(id: params["id"])
   end
 
   def update
-    
+    recipe_params = params.require(:recipe).permit!
+    @recipe = Recipe.find_by(id: params["id"])
+    @recipe.update(recipe_params)
+    redirect_to recipes_path
   end
 
   def destroy
-    
+    @recipe = Recipe.find_by(id: params["id"])
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
 end

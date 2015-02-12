@@ -1,5 +1,29 @@
+<!--
+Recipe: 
+  user_id: integer
+  title: text
+  description: text
+  meal_type: string
+  creation_date: text
+-->
+
+<%= form_for @recipe do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+  <%= form.button 'Create Recipe', class: "btn btn-default" %>
+<% end %>
+
+
+<!--
 <form action="/recipes" method="POST">
   <div class="form-group">
+
     <label for="title">Name of the Recipe</label>
     <input type="text" class="form-control" id="title" placeholder="Enter the name of the recipe">
   </div>
@@ -7,5 +31,6 @@
     <label for="description">Description of the Recipe</label>
     <input type="text" class="form-control" id="summary" placeholder="Enter the description of the recipe">
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="button" class="btn btn-default">Submit</button>
 </form>
+-->

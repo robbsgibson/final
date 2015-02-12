@@ -4,6 +4,9 @@
 <% @recipes.each do |recipe| %>
   <p><a href="/recipes/<%=recipe.id %>"><%= recipe.title %></a></p>
   <p><% recipe.title %></p>
-
+  <% end %>
+<% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.title, recipe_path(recipe) %> <%= link_to "Edit", edit_recipe_path(recipe) %> <%= link_to "Delete", recipe_path(recipe), method: :delte, data: { confirm: 'Are you sure you want to delete this data?'} %></li>
 <% end %>
+<%= link_to "New Recipe", new_recipe_path, class: 'btn btn-sm btn-default' %>
 </table>
