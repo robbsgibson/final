@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :recipes
+  resources :shoppinglists
 
   root to: "recipes#index"
   

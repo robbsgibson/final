@@ -1,0 +1,16 @@
+<!--
+Shoppinglist:
+  user_id: integer
+  creation_date: text
+  name: text
+  recipe_id: integer
+  -->
+
+
+<%= form_for @shoppinglist do |form| %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <%= form.button 'Create Shopping List', class: "btn btn-default" %>
+<% end %>

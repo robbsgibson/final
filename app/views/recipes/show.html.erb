@@ -12,11 +12,17 @@
 </tr>
 <% @ingredients.each do |ingredient| %>
   <tr>
+ <td><p><%= ingredient.product.name %></p></td>
+    <td><p><%= ingredient.quantity %></p></td>
+    <td><p><%= ingredient.measurement %></p></td> 
+</tr>
+
+  <!-- <tr>
  <td><p><%= Product.find_by(id: ingredient.product_id).name %></p></td>
     <td><p><%= ingredient.quantity %></p></td>
-    <td><p><%= ingredient.measurement %></p></td>
-</tr>
+    <td><p><%= ingredient.measurement %></p></td> 
+</tr> -->
 <% end %>
 </table>
-<h5> Recipe from <%= @recipe.user.username %> </h5>
+<h5> Recipe from <%= @recipe.user.try(:username) %> </h5>
 

@@ -13,6 +13,7 @@ Recipe.delete_all
 Ingredient.delete_all
 Product.delete_all
 Shoppinglist.delete_all
+Mealtype.delete_all
 
 # Create User
 puts "Creating the users..."
@@ -22,13 +23,22 @@ noah = User.create(username: "noah", password: "noah")
 talia = User.create(username: "talia", password: "talia")
 shelley = User.create(username: "shelley", password: "shelley")
 
+puts "Creating the meal type specifics..."
+# Create meal type
+breakfast = Mealtype.create(name: "Breakfast")
+lunch = Mealtype.create(name: "Lunch")
+soup = Mealtype.create(name: "Soup")
+dinner = Mealtype.create(name: "Dinner")
+salad = Mealtype.create(name: "Salad")
+dessert = Mealtype.create(name: "Dessert")
+
 # Create Recipe
 puts "Creating the recipe..."
-shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy.", meal_type: "Breakfast", creation_date: "12/1/2011")
-nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", description: "Delicious popsicles, great for a hot summer day or after school snack.", meal_type: "Dessert", creation_date: "1/10/2012")
-korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", description: "spicy stew with silken tofu.", meal_type: "Soup", creation_date: "1/14/2015")
-moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", description: "hearty stew that's great in the fall and winter.", meal_type: "Dinner")
-udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", description: "Comfy food with a little spice.", meal_type: "Soup")
+shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy.", mealtype_id: breakfast.id, creation_date: "12/1/2011")
+nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", description: "Delicious popsicles, great for a hot summer day or after school snack.", mealtype_id: dessert.id, creation_date: "1/10/2012")
+korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", description: "spicy stew with silken tofu.", mealtype_id: soup.id, creation_date: "1/14/2015")
+moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", description: "hearty stew that's great in the fall and winter.", mealtype_id: dinner.id)
+udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", description: "Comfy food with a little spice.", mealtype_id: soup.id)
 
 # Create Ingredient
 puts "Creating the ingredient database..."
@@ -56,3 +66,5 @@ puts "Creating the recipe specific ingredients..."
 # Create shopping list
 Shoppinglist.create(user_id: robb.id, recipe_id: shakshuka.id)
 Shoppinglist.create(user_id: robb.id, recipe_id: nutella_popsicles.id)
+
+

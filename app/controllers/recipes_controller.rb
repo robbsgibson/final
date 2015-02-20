@@ -6,12 +6,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params["id"])
-    @ingredients = Ingredient.where(recipe_id: @recipe.id)
-    @products = []
-    @ingredients.each do |ingredient|
-      @products << Product.find_by(id: ingredient.product_id)
-      @product_name = Product.find_by(id: ingredient.product_id)
-    end
+    @ingredients = @recipe.ingredients
+    #@ingredients = Ingredient.where(recipe_id: @recipe.id)
+    #@products = []
+    #@ingredients.each do |ingredient|
+      #@products << Product.find_by(id: ingredient.product_id)
+      #@product_name = Product.find_by(id: ingredient.product_id)
+    #end
   end  
 
   def new

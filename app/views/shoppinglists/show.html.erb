@@ -1,0 +1,6 @@
+<h1> <%= @shoppinglist.name %></p> </h1>
+<ul>
+   <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, movie_path(recipe.title) %> </li>
+      <% end %>
+</ul>

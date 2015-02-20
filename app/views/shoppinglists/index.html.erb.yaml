@@ -7,7 +7,7 @@ Recipe:
   user_id: integer
   title: text
   description: text
-  mealtype_id: string
+  meal_type: string
   creation_date: text
 
 Ingredient:
@@ -25,9 +25,5 @@ Shoppinglist:
   creation_date: text
   name: text
   recipe_id: integer
-
-Mealtype:
-  name: text
-
 
 
