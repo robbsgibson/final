@@ -14,14 +14,15 @@ Ingredient.delete_all
 Product.delete_all
 Shoppinglist.delete_all
 Mealtype.delete_all
+Item.delete_all
 
 # Create User
 puts "Creating the users..."
-robb = User.create(username: "robb", password: "robb", email: "rgibson2015@kellogg.northwestern.edu")
-juan = User.create(username: "juan", password: "juan")
-noah = User.create(username: "noah", password: "noah")
-talia = User.create(username: "talia", password: "talia")
-shelley = User.create(username: "shelley", password: "shelley")
+robb = User.create(name: "Robb", password: "robb", email: "rgibson2015@kellogg.northwestern.edu")
+juan = User.create(name: "Juan", password: "juan", email: "jsutil2015@kellogg.northwestern.edu")
+noah = User.create(name: "Noah", password: "noah", email: "nbleicher2015@kellogg.northwestern.edu")
+talia = User.create(name: "Talia", password: "talia", email: "taliabgibson@gmail.com")
+shelley = User.create(name: "Shelley", password: "shelley")
 
 puts "Creating the meal type specifics..."
 # Create meal type
@@ -64,7 +65,12 @@ Ingredient.create(recipe_id: shakshuka.id, product_id: paprika.id, quantity: "1"
 
 puts "Creating the recipe specific ingredients..."
 # Create shopping list
-Shoppinglist.create(user_id: robb.id, recipe_id: shakshuka.id)
-Shoppinglist.create(user_id: robb.id, recipe_id: nutella_popsicles.id)
+sunday = Shoppinglist.create(user_id: robb.id, name: "Sunday")
+summer = Shoppinglist.create(user_id: robb.id, name: "Summer")
 
-
+puts "Creating the items added to shopping lists..."
+# Create items for shopping list
+Item.create(shoppinglist_id: sunday.id, recipe_id: shakshuka.id)
+Item.create(shoppinglist_id: sunday.id, recipe_id: moroccan_stew.id)
+Item.create(shoppinglist_id: sunday.id, recipe_id: udon_chicken_soup.id)
+Item.create(shoppinglist_id: summer.id, recipe_id: udon_chicken_soup.id)

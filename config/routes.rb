@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   resources :recipes
   resources :shoppinglists
+  resources :items
+  resources :users
+  resources :sessions
+
+  get "/login", to: "sessions#new"
+  get "/logout", to: "sessions#destroy"
 
   root to: "recipes#index"
   

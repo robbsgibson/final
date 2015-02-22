@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "ingredients", ["product_id"], name: "index_ingredients_on_product_id"
   add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
 
+  create_table "items", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "shoppinglist_id"
+  end
+
+  add_index "items", ["recipe_id"], name: "index_items_on_recipe_id"
+  add_index "items", ["shoppinglist_id"], name: "index_items_on_shoppinglist_id"
+
   create_table "mealtypes", force: :cascade do |t|
     t.text "name"
   end
@@ -47,16 +55,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "user_id"
     t.text    "creation_date"
     t.text    "name"
-    t.integer "recipe_id"
   end
 
-  add_index "shoppinglists", ["recipe_id"], name: "index_shoppinglists_on_recipe_id"
   add_index "shoppinglists", ["user_id"], name: "index_shoppinglists_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
     t.string "email"
+    t.string "password_digest"
+    t.string "name"
   end
 
 end

@@ -1,3 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :recipe
+  has_secure_password
+  has_many :recipes
+
+  validates :email, presence: true
+  validates :name, presence: true
 end

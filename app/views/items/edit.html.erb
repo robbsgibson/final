@@ -1,0 +1,7 @@
+<%= form_for @item do |form|%>
+ <div class="form-group">
+  <%= form.label :recipe_id%>
+  <%= form.text_field :recipe_id, class: "form-control"%>
+</div>
+  <%= form.button 'Update Shopping List', class: "btn btn-default" %>
+<% end %>

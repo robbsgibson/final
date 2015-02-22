@@ -1,6 +1,6 @@
 User:
-  username: string
-  password: string
+  name: string
+  password_digest: string
   email: string
 
 Recipe: 
@@ -24,10 +24,13 @@ Shoppinglist:
   user_id: integer
   creation_date: text
   name: text
-  recipe_id: integer
 
 Mealtype:
   name: text
+
+Item:
+  recipe_id: integer
+  shoppinglist_id: integer
 
 
 

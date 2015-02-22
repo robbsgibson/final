@@ -1,6 +1,12 @@
-<h1> <%= @shoppinglist.name %></p> </h1>
+<h1> Shoppling list name: <%= @shoppinglist.name %></p> </h1>
+
+<h3> Recipes included: </h3>
 <ul>
-   <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.title, movie_path(recipe.title) %> </li>
-      <% end %>
+<% @items.each do |item| %>
+    <li><%= item.recipe.title %> </li>
+<% end %>
 </ul>
+
+
+
+
