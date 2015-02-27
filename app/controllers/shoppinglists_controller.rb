@@ -5,11 +5,25 @@ class ShoppinglistsController < ApplicationController
   end
 
    def show
+    #@shoppinglist = Shoppinglist.find_by(id: params["id"])
+    #@items = @shoppinglist.items
+    
     @shoppinglist = Shoppinglist.find_by(id: params["id"])
     @items = @shoppinglist.items
+    @recipes = []
+    @items.each do |item| 
+      @recipes << item.recipe
+    end
+    @ingredients = []
+    @recipes.each do |recipe|
+      @ingredients << recipe.ingredients
+    end
+    @ingredients.flatten!
+    @ingredients.sort_by { |ingredient| ingredient.product.name.downcase }
+
     #@recipe = Recipe.find_by(id: items.recipe_id)
     #@ingredients = @items.recipe.ingredients
-    #@recipes = @items.recipe_id 
+    #@recipes = @items.recipe_id
     #@recipe = Recipe.find_by(id: @items.recipe_id)
     #@ingredients = @recipe.ingredients
   end

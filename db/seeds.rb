@@ -15,6 +15,7 @@ Product.delete_all
 Shoppinglist.delete_all
 Mealtype.delete_all
 Item.delete_all
+Storesection.delete_all
 
 # Create User
 puts "Creating the users..."
@@ -35,22 +36,35 @@ dessert = Mealtype.create(name: "Dessert")
 
 # Create Recipe
 puts "Creating the recipe..."
-shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy.", mealtype_id: breakfast.id, creation_date: "12/1/2011")
-nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", description: "Delicious popsicles, great for a hot summer day or after school snack.", mealtype_id: dessert.id, creation_date: "1/10/2012")
-korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", description: "spicy stew with silken tofu.", mealtype_id: soup.id, creation_date: "1/14/2015")
-moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", description: "hearty stew that's great in the fall and winter.", mealtype_id: dinner.id)
-udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", description: "Comfy food with a little spice.", mealtype_id: soup.id)
+shakshuka = Recipe.create(user_id: robb.id, title: "Shakshuka", image: "Shakshuka.jpg", description: "Middle eastern breakfast of poached eggs on top of a tomato stew, slightly spicy.", mealtype_id: breakfast.id, creation_date: "12/1/2011")
+nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", image: "Nutellapopsicles.jpg",description: "Delicious popsicles, great for a hot summer day or after school snack.", mealtype_id: dessert.id, creation_date: "1/10/2012")
+korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", image: "koreanstew.jpg", description: "spicy stew with silken tofu.", mealtype_id: soup.id, creation_date: "1/14/2015")
+moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", image: "moroccanstew.jpg", description: "hearty stew that's great in the fall and winter.", mealtype_id: dinner.id)
+udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", image: "udonchickennoodle.jpg", description: "Comfy food with a little spice.", mealtype_id: soup.id)
+#aji_de_gallina = Recipe.create(user_id: juan.id, title: "Aji De Gallina", image: "ajidegallina.jpg", description: "Yummy peruvian dish.", mealtype_id: dinner.id)
+
+puts "Creating the store sections..."
+# Create store sections table
+fresh_produce = Storesection.create(section: "Fresh Produce")
+meat = Storesection.create(section: "Meat")
+bakery = Storesection.create(section: "Bakery")
+refrigerator = Storesection.create(section: "Refrigerator")
+frozen = Storesection.create(section: "Frozen")
+spices = Storesection.create(section: "Spices")
+baking = Storesection.create(section: "Baking")
+grocery = Storesection.create(section: "Grocery")
 
 # Create Ingredient
 puts "Creating the ingredient database..."
-whole_peeled_tomatoes = Product.create(name: "Whole-peeled tomatoes")
-eggs = Product.create(name: "Eggs")
-olive_oil = Product.create(name: "Olive oil")
-serano_peppers = Product.create(name: "Serano peppers")
-yellow_onion = Product.create(name: "Onion (yellow)")
-garlic = Product.create(name: "garlic")
-cumin_ground = Product.create(name: "cumin (ground)")
-paprika = Product.create(name: "paprika")
+whole_peeled_tomatoes = Product.create(name: "Whole-peeled tomatoes", storesectioin_id: fresh_produce.id)
+eggs = Product.create(name: "Eggs", storesectioin_id: refrigerator.id)
+olive_oil = Product.create(name: "Olive oil", storesectioin_id: grocery.id)
+serano_peppers = Product.create(name: "Serrano peppers", storesectioin_id: fresh_produce.id)
+yellow_onion = Product.create(name: "Onion (yellow)", storesectioin_id: fresh_produce.id)
+garlic = Product.create(name: "garlic", storesectioin_id: fresh_produce.id)
+cumin_ground = Product.create(name: "cumin (ground)", storesectioin_id: spices.id)
+paprika = Product.create(name: "paprika", storesectioin_id: spices.id)
+chicken = Product.create(name: "chicken", storesectioin_id: meat.id)
 
 puts "Creating the recipe specific ingredients..."
 # Create recipe ingredients for Shakshuka
@@ -62,6 +76,8 @@ Ingredient.create(recipe_id: shakshuka.id, product_id: yellow_onion.id, quantity
 Ingredient.create(recipe_id: shakshuka.id, product_id: garlic.id, quantity: "5", measurement: "cloves")
 Ingredient.create(recipe_id: shakshuka.id, product_id: cumin_ground.id, quantity: "1", measurement: "teaspoon")
 Ingredient.create(recipe_id: shakshuka.id, product_id: paprika.id, quantity: "1", measurement: "tablespoon")
+Ingredient.create(recipe_id: udon_chicken_soup.id, product_id: chicken.id, quantity: "2", measurement: "breast")
+Ingredient.create(recipe_id: moroccan_stew.id, product_id: chicken.id, quantity: "1", measurement: "breast")
 
 puts "Creating the recipe specific ingredients..."
 # Create shopping list
@@ -74,3 +90,5 @@ Item.create(shoppinglist_id: sunday.id, recipe_id: shakshuka.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: moroccan_stew.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: udon_chicken_soup.id)
 Item.create(shoppinglist_id: summer.id, recipe_id: udon_chicken_soup.id)
+
+

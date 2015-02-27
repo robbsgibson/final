@@ -36,9 +36,12 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.text "name"
-    t.text "alternative_name"
+    t.text    "name"
+    t.text    "alternative_name"
+    t.integer "storesectioin_id"
   end
+
+  add_index "products", ["storesectioin_id"], name: "index_products_on_storesectioin_id"
 
   create_table "recipes", force: :cascade do |t|
     t.integer "user_id"
@@ -46,6 +49,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text    "description"
     t.text    "creation_date"
     t.string  "mealtype_id"
+    t.string  "image"
   end
 
   add_index "recipes", ["mealtype_id"], name: "index_recipes_on_mealtype_id"
@@ -58,6 +62,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_index "shoppinglists", ["user_id"], name: "index_shoppinglists_on_user_id"
+
+  create_table "storesections", force: :cascade do |t|
+    t.string "section"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

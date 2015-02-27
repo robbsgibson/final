@@ -5,6 +5,7 @@ User:
 
 Recipe: 
   user_id: integer
+  image: string
   title: text
   description: text
   mealtype_id: string
@@ -19,6 +20,7 @@ Ingredient:
 Product:
   name: text
   alternative_name: text
+  storesectioin_id: integer
 
 Shoppinglist:
   user_id: integer
@@ -31,6 +33,9 @@ Mealtype:
 Item:
   recipe_id: integer
   shoppinglist_id: integer
+
+Storesection:
+  section: string
 
 
 
