@@ -41,6 +41,7 @@ nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", 
 korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", image: "koreanstew.jpg", description: "spicy stew with silken tofu.", mealtype_id: soup.id, creation_date: "1/14/2015")
 moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", image: "moroccanstew.jpg", description: "hearty stew that's great in the fall and winter.", mealtype_id: dinner.id)
 udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", image: "udonchickennoodle.jpg", description: "Comfy food with a little spice.", mealtype_id: soup.id)
+pavlova = Recipe.create(user_id: robb.id, title: "Pavlova", image: "pavlova.jpg", description: "Giant meringue dessert.", mealtype_id: dessert.id)
 aji_de_gallina = Recipe.create(user_id: juan.id, title: "Aji De Gallina", image: "ajidegallina.jpg", description: "Yummy peruvian dish.", mealtype_id: dinner.id)
 
 puts "Creating the store sections..."
@@ -65,6 +66,17 @@ garlic = Product.create(name: "garlic", storesectioin_id: fresh_produce.id)
 cumin_ground = Product.create(name: "cumin (ground)", storesectioin_id: spices.id)
 paprika = Product.create(name: "paprika", storesectioin_id: spices.id)
 chicken = Product.create(name: "chicken", storesectioin_id: meat.id)
+egg_whites = Product.create(name: "Egg whites", storesectioin_id: refrigerator.id)
+cream_of_tartar = Product.create(name: "Cream of Tartar", storesectioin_id: spices.id)
+vanilla_extract = Product.create(name: "Vanilla Extract", storesectioin_id: baking.id)
+caster_sugar = Product.create(name: "Caster Sugar", storesectioin_id: baking.id)
+cornflour = Product.create(name: "Cornflour", storesectioin_id: baking.id)
+arrowroot = Product.create(name: "Arrowroot", storesectioin_id: baking.id)
+white_vinegar = Product.create(name: "White Vinegar", storesectioin_id: baking.id)
+cream = Product.create(name: "Cream", storesectioin_id: refrigerator.id)
+yoghurt_plain = Product.create(name: "Yogurht (plain)", storesectioin_id: refrigerator.id)
+strawberries = Product.create(name: "Strawberries", storesectioin_id: fresh_produce.id)
+honey = Product.create(name: "Honey", storesectioin_id: grocery.id)
 
 puts "Creating the recipe specific ingredients..."
 # Create recipe ingredients for Shakshuka
@@ -78,11 +90,24 @@ Ingredient.create(recipe_id: shakshuka.id, product_id: cumin_ground.id, quantity
 Ingredient.create(recipe_id: shakshuka.id, product_id: paprika.id, quantity: "1", measurement: "tablespoon")
 Ingredient.create(recipe_id: udon_chicken_soup.id, product_id: chicken.id, quantity: "2", measurement: "breast")
 Ingredient.create(recipe_id: moroccan_stew.id, product_id: chicken.id, quantity: "1", measurement: "breast")
+Ingredient.create(recipe_id: pavlova.id, product_id: egg_whites.id, quantity: "6", measurement: "eggs")
+Ingredient.create(recipe_id: pavlova.id, product_id: cream_of_tartar.id, quantity: "1/4", measurement: "teaspoon")
+Ingredient.create(recipe_id: pavlova.id, product_id: vanilla_extract.id, quantity: "1", measurement: "teaspoon")
+Ingredient.create(recipe_id: pavlova.id, product_id: caster_sugar.id, quantity: "4/3", measurement: "cups")
+Ingredient.create(recipe_id: pavlova.id, product_id: cornflour.id, quantity: "1", measurement: "tablespoon")
+Ingredient.create(recipe_id: pavlova.id, product_id: arrowroot.id, quantity: "2", measurement: "tablespoons")
+Ingredient.create(recipe_id: pavlova.id, product_id: white_vinegar.id, quantity: "2", measurement: "teaspoons")
+Ingredient.create(recipe_id: pavlova.id, product_id: cream.id, quantity: "300", measurement: "ml")
+Ingredient.create(recipe_id: pavlova.id, product_id: yoghurt_plain.id, quantity: "300", measurement: "ml")
+Ingredient.create(recipe_id: pavlova.id, product_id: strawberries.id, quantity: "2", measurement: "punnets")
+Ingredient.create(recipe_id: pavlova.id, product_id: honey.id, quantity: "", measurement: "")
+
 
 puts "Creating the recipe specific ingredients..."
 # Create shopping list
 sunday = Shoppinglist.create(user_id: robb.id, name: "Sunday")
 summer = Shoppinglist.create(user_id: robb.id, name: "Summer")
+pavlova = Shoppinglist.create(user_id: robb.id, name: "Pavlova")
 
 puts "Creating the items added to shopping lists..."
 # Create items for shopping list
@@ -90,5 +115,6 @@ Item.create(shoppinglist_id: sunday.id, recipe_id: shakshuka.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: moroccan_stew.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: udon_chicken_soup.id)
 Item.create(shoppinglist_id: summer.id, recipe_id: udon_chicken_soup.id)
+Item.create(shoppinglist_id: pavlova.id, recipe_id: pavlova.id)
 
 

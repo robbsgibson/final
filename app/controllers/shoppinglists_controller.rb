@@ -21,13 +21,14 @@ class ShoppinglistsController < ApplicationController
     @ingredients.flatten!
     @orderedlist = @ingredients.sort_by { |ingredient| ingredient.product.name.downcase }
 
-    @collapse = {}
-    @collapse = {:name => :quantity }
-    @orderedlist.each do |ingredient|
-      @collapse = ingredient.new {|ingredient,ingredient.product.name| = ingredient.quantity }
+    #@collapse = {}
+    #@collapse = {:name => :quantity }
+    #@orderedlist.each do |ingredient|
+      #@collapse = ingredient.new {|ingredient,ingredient.product.name| = ingredient.quantity }
+     
       #@collapse[:name] << ingredient.product.name
       #@collapse[:quantity] << ingredient.quantity
-    end
+    #end
 
 
         #[Product.find_by(ingredient.product.name)]
