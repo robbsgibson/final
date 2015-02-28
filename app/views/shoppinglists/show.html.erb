@@ -16,9 +16,10 @@
   <th>Quantity</th>
   <th>Measurement</th>
 </tr>
-<% @ingredients.each do |x| %>
+<% @collapse.each do |x| %>
+<%# @orderedlist.each do |x| %>
   <tr>
-    <td><p><%= x.product.name %></p></td>
+    <td><p><%#= x.product.name %></p></td>
     <td><p><%= x.quantity %></p></td>
     <td><p><%= x.measurement %></p></td> 
 </tr>

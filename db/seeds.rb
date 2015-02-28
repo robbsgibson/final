@@ -41,7 +41,7 @@ nutella_popsicles = Recipe.create(user_id: robb.id, title: "Nutella Popsicles", 
 korean_tofu_stew = Recipe.create(user_id: robb.id, title: "Korean Soft Tofu Stew (Soondubu Jjigae)", image: "koreanstew.jpg", description: "spicy stew with silken tofu.", mealtype_id: soup.id, creation_date: "1/14/2015")
 moroccan_stew = Recipe.create(user_id: robb.id, title: "Moroccan Pumpkin Lentil Stew", image: "moroccanstew.jpg", description: "hearty stew that's great in the fall and winter.", mealtype_id: dinner.id)
 udon_chicken_soup = Recipe.create(user_id: robb.id, title: "Udon Chicken Noodle Soup", image: "udonchickennoodle.jpg", description: "Comfy food with a little spice.", mealtype_id: soup.id)
-#aji_de_gallina = Recipe.create(user_id: juan.id, title: "Aji De Gallina", image: "ajidegallina.jpg", description: "Yummy peruvian dish.", mealtype_id: dinner.id)
+aji_de_gallina = Recipe.create(user_id: juan.id, title: "Aji De Gallina", image: "ajidegallina.jpg", description: "Yummy peruvian dish.", mealtype_id: dinner.id)
 
 puts "Creating the store sections..."
 # Create store sections table
