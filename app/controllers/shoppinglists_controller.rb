@@ -49,6 +49,8 @@ class ShoppinglistsController < ApplicationController
   def create
     shoppinglist_params = params.require(:shoppinglist).permit!
     Shoppinglist.create(shoppinglist_params)
+    @user = User.find_by(id: current_user.id)
+    @recipes = @user.recipes
     redirect_to shoppinglists_path
     #redirect_to items_path
   end

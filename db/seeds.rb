@@ -107,7 +107,7 @@ puts "Creating the recipe specific ingredients..."
 # Create shopping list
 sunday = Shoppinglist.create(user_id: robb.id, name: "Sunday")
 summer = Shoppinglist.create(user_id: robb.id, name: "Summer")
-pavlova = Shoppinglist.create(user_id: robb.id, name: "Pavlova")
+february = Shoppinglist.create(user_id: robb.id, name: "Pavlova")
 
 puts "Creating the items added to shopping lists..."
 # Create items for shopping list
@@ -115,6 +115,6 @@ Item.create(shoppinglist_id: sunday.id, recipe_id: shakshuka.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: moroccan_stew.id)
 Item.create(shoppinglist_id: sunday.id, recipe_id: udon_chicken_soup.id)
 Item.create(shoppinglist_id: summer.id, recipe_id: udon_chicken_soup.id)
-Item.create(shoppinglist_id: pavlova.id, recipe_id: pavlova.id)
+Item.create(shoppinglist_id: february.id, recipe_id: pavlova.id)
 
 
